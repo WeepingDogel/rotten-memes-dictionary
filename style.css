@@ -64,7 +64,13 @@ h4 { margin: 0 0 8px; font-size: 15px; }
 .chip .n { color: var(--muted); font-size: 11px; margin-left: 4px; }
 .chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
 .chip.on .n { color: rgba(255,255,255,.85); }
+.filter-group { display: flex; gap: 8px; align-items: flex-start; margin: 8px 0; }
+.fg-label { flex: 0 0 42px; font-size: 12px; color: var(--muted); padding-top: 5px; user-select: none; }
+.filter-group .chips { margin: 0; }
 .row-between { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.ctopics { display: flex; flex-wrap: wrap; gap: 6px; }
+.tbadge { font-size: 12px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent);
+  border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 999px; padding: 2px 9px; }
 .chk { font-size: 13px; color: var(--muted); user-select: none; }
 .count { color: var(--muted); font-size: 13px; margin: 8px 0; }
 .empty { color: var(--muted); }

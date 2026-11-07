@@ -106,6 +106,16 @@
       "items": {
         "type": "string"
       }
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "粗口·通假避审",
+          "擦边整活"
+        ]
+      },
+      "minItems": 0
     }
   }
 }

@@ -4,8 +4,8 @@
   const DATA = window.ROT_ENTRIES || [];
 
   const $ = (s) => document.querySelector(s);
-  const cats = $("#cats"), harms = $("#harms"), list = $("#list"),
-        q = $("#q"), empty = $("#empty"), count = $("#count"),
+  const cats = $("#cats"), harms = $("#harms"), topics = $("#topics"),
+        list = $("#list"), q = $("#q"), empty = $("#empty"), count = $("#count"),
         only4 = $("#only4"), byname = $("#byname"),
         pillcount = $("#pillcount"), footcount = $("#footcount"),
         statblocks = $("#statblocks");
@@ -14,17 +14,19 @@
   const uniq = (arr) => Array.from(new Set(arr));
   const catSet = uniq(DATA.map((e) => e.category)).sort();
   const harmSet = uniq(DATA.flatMap((e) => e.harm_tags)).sort();
+  const topicSet = uniq(DATA.flatMap((e) => e.topics || [])).sort();
 
   // 选中态
-  const selCat = new Set(), selHarm = new Set();
+  const selCat = new Set(), selHarm = new Set(), selTopics = new Set();
   let query = "";
 
   const norm = (s) => (s || "").toLowerCase();
 
-  // 命中查询？term / aliases / pinyin / meaning / harm_note
+  // 命中查询？term / aliases / pinyin / meaning / harm_note / topics
   function match(e) {
     if (!query) return true;
-    const hay = [e.term, e.pinyin, e.meaning, e.harm_note, (e.aliases || []).join(" ")]
+    const hay = [e.term, e.pinyin, e.meaning, e.harm_note,
+      (e.aliases || []).join(" "), (e.topics || []).join(" ")]
       .map(norm).join(" ");
     return query.split(/\s+/).filter(Boolean).every((t) => hay.includes(t));
   }
@@ -33,6 +35,7 @@
     if (only4.checked && e.harm_level < 4) return false;
     if (selCat.size && !selCat.has(e.category)) return false;
     if (selHarm.size && !e.harm_tags.some((h) => selHarm.has(h))) return false;
+    if (selTopics.size && !(e.topics || []).some((t) => selTopics.has(t))) return false;
     return true;
   }
 
@@ -70,6 +73,8 @@
       e.first_seen ? '<div class="kv"><b>流行</b>' + esc(e.first_seen) + " 前后</div>" : "",
     ].join("");
     const harms2 = e.harm_tags.map((h) => '<span class="htag">' + hi(h) + "</span>").join(" ");
+    const tps = (e.topics || []).length
+      ? '<div class="ctopics">' + e.topics.map((t) => '<span class="tbadge">' + hi(t) + "</span>").join("") + "</div>" : "";
     return '<article class="card">' +
       '<div class="c-top">' +
         '<h3 class="term">' + hi(e.term) + "</h3>" +
@@ -83,6 +88,7 @@
       '<p class="meaning">' + hi(e.meaning) + "</p>" +
       '<div class="harm"><span class="hlab">危害</span>' + harms2 +
         '<p>' + hi(e.harm_note) + "</p></div>" +
+      tps +
       (ex ? '<ul class="ex">' + ex + "</ul>" : "") +
       (more ? '<details class="more"><summary>更多（来源/用法/别名/拼音/时间）</summary>' + more + "</details>" : "") +
       "</article>";
@@ -97,9 +103,10 @@
     count.textContent = "共 " + DATA.length + " 条，当前显示 " + shown.length + " 条";
   }
 
-  function chips(container, items, set) {
+  function chips(container, items, set, has) {
+    has = has || ((e, c) => e.category === c || e.harm_tags.includes(c));
     container.innerHTML = items.map((c) => {
-      const n = DATA.filter((e) => c === e.category || e.harm_tags.includes(c)).length;
+      const n = DATA.filter((e) => has(e, c)).length;
       return '<button class="chip" data-v="' + esc(c) + '">' + hi(c) +
         ' <span class="n">' + n + "</span></button>";
     }).join("");
@@ -141,8 +148,10 @@
   }
 
   // 初始化
-  chips(cats, catSet, selCat);
-  chips(harms, harmSet, selHarm);
+  chips(cats, catSet, selCat, (e, c) => e.category === c);
+  chips(harms, harmSet, selHarm, (e, c) => e.harm_tags.includes(c));
+  if (topicSet.length) chips(topics, topicSet, selTopics, (e, c) => (e.topics || []).includes(c));
+  else topics.parentElement.hidden = true;
   q.addEventListener("input", () => { query = norm(q.value); render(); });
   only4.addEventListener("change", render);
   byname.addEventListener("change", render);

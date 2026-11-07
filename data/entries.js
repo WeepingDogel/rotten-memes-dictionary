@@ -29,6 +29,9 @@ window.ROT_ENTRIES = [
     "harm_level": 4,
     "contributors": [
       "WeepingDogel"
+    ],
+    "topics": [
+      "粗口·通假避审"
     ]
   },
   {
@@ -56,6 +59,9 @@ window.ROT_ENTRIES = [
     "harm_level": 4,
     "contributors": [
       "WeepingDogel"
+    ],
+    "topics": [
+      "粗口·通假避审"
     ]
   },
   {
@@ -168,6 +174,37 @@ window.ROT_ENTRIES = [
     ]
   },
   {
+    "id": "tang",
+    "term": "糖",
+    "aliases": [
+      "你糖的没边了",
+      "糖的没边"
+    ],
+    "category": "网络黑话",
+    "meaning": "“糖”是“唐氏（综合征）”的隐晦别称，用来骂人，属**残障歧视**；“你糖的没边了”=骂人唐氏。",
+    "origin": "把残障污名“唐氏”缩成“糖”以过审，被当成“更委婉的骂人”，实为对残障群体的羞辱。",
+    "example": [
+      "你糖的没边了。"
+    ],
+    "kid_usage": "用“糖”代“唐氏”侮辱同学/对手。",
+    "first_seen": "2022",
+    "status": "active",
+    "tone": "粗口",
+    "harm_tags": [
+      "严肃消解",
+      "标签化",
+      "语境错位"
+    ],
+    "harm_note": "这是拿残障开玩笑、给残障贴污名，属最该立刻纠正的一类；孩子以为“糖”很委婉，其实是在羞辱一个群体。",
+    "harm_level": 4,
+    "topics": [
+      "粗口·通假避审"
+    ],
+    "contributors": [
+      "WeepingDogel"
+    ]
+  },
+  {
     "id": "juejuezi",
     "term": "绝绝子",
     "aliases": [
@@ -220,6 +257,9 @@ window.ROT_ENTRIES = [
     "harm_level": 4,
     "contributors": [
       "WeepingDogel"
+    ],
+    "topics": [
+      "粗口·通假避审"
     ]
   },
   {
@@ -276,6 +316,9 @@ window.ROT_ENTRIES = [
     "harm_level": 3,
     "contributors": [
       "WeepingDogel"
+    ],
+    "topics": [
+      "擦边整活"
     ]
   },
   {
@@ -511,6 +554,9 @@ window.ROT_ENTRIES = [
     "harm_level": 3,
     "contributors": [
       "WeepingDogel"
+    ],
+    "topics": [
+      "粗口·通假避审"
     ]
   },
   {
@@ -591,6 +637,36 @@ window.ROT_ENTRIES = [
     ]
   },
   {
+    "id": "jia-hao",
+    "term": "嘉豪",
+    "aliases": [
+      "嘉豪子",
+      "嘉豪文学"
+    ],
+    "category": "标签词",
+    "meaning": "由人名转成的网络标签，泛指爱展示个性/装酷/用力过猛、把握不好度的人（如模仿 Alan Walker 在教室'虚空打碟'）；衍生'嘉豪文学'，把各种'装'的行为都归成'嘉豪'。",
+    "origin": "2024 年起：某学生模仿电音人 Alan Walker 造型在教室'虚空打碟'走红，后泛化成'爱装/用力过猛'标签，乃至对个性表达的群嘲。",
+    "example": [
+      "他是个纯血嘉豪。",
+      "这是互联网嘉豪行为。",
+      "嘉豪子，你别装了。"
+    ],
+    "kid_usage": "把爱表现/装酷的同学叫'嘉豪'，或自嘲'我是嘉豪'。",
+    "first_seen": "2024",
+    "status": "active",
+    "tone": "中性",
+    "harm_tags": [
+      "标签化",
+      "圈层壁垒",
+      "表达退化"
+    ],
+    "harm_note": "把'想展示自己'这件事本身打成'嘉豪'来群嘲，孩子学的不是好好表达，而是'别太出格，会被贴嘉豪'，个性表达被低成本审判。",
+    "harm_level": 3,
+    "contributors": [
+      "WeepingDogel"
+    ]
+  },
+  {
     "id": "zui-ti",
     "term": "嘴替",
     "aliases": [
@@ -611,6 +687,36 @@ window.ROT_ENTRIES = [
     ],
     "harm_note": "孩子不再自己组织语言，而是找一句现成“嘴替”贴上，独立思考表达退化成“找代词”。",
     "harm_level": 3,
+    "contributors": [
+      "WeepingDogel"
+    ]
+  },
+  {
+    "id": "kun",
+    "term": "坤",
+    "aliases": [
+      "坤坤"
+    ],
+    "category": "谐音梗",
+    "meaning": "“坤”当“鸡”的形近通假字（避审），多见于“坤鸡巴”等，替“鸡巴”过审。",
+    "origin": "（据网络资料）为绕敏感词，用“坤”顶“鸡”；同“冯=妈、福=逼”一类的通假避审玩法。",
+    "example": [
+      "你个坤。",
+      "坤鸡巴的。"
+    ],
+    "kid_usage": "拿“坤”代“鸡”去骂人。",
+    "first_seen": "2022",
+    "status": "active",
+    "tone": "粗口",
+    "harm_tags": [
+      "严肃消解",
+      "语境错位"
+    ],
+    "harm_note": "同一脏话被反复换字躲过滤，孩子以为“换个通假字就不粗俗”，粗口反而更藏得住、更难管教。",
+    "harm_level": 3,
+    "topics": [
+      "粗口·通假避审"
+    ],
     "contributors": [
       "WeepingDogel"
     ]
@@ -744,6 +850,36 @@ window.ROT_ENTRIES = [
     ]
   },
   {
+    "id": "fa",
+    "term": "法",
+    "aliases": [
+      "法了"
+    ],
+    "category": "谐音梗",
+    "meaning": "“法”当英文粗口“fuck”的音译通假字（避审），如“你法了”=“你被fuck了”。",
+    "origin": "英文粗口“fuck”用音译“法”顶替过审，同“冯/福/坤”一类的通假避审。",
+    "example": [
+      "你法了。"
+    ],
+    "kid_usage": "把“fuck”写成“法”甩出去。",
+    "first_seen": "2021",
+    "status": "active",
+    "tone": "粗口",
+    "harm_tags": [
+      "严肃消解",
+      "语境错位",
+      "读写退化"
+    ],
+    "harm_note": "把常用字“法”（法律/方法）临时挪成英文脏话，孩子对“法”的规范义和粗口义混淆，语感彻底乱掉。",
+    "harm_level": 3,
+    "topics": [
+      "粗口·通假避审"
+    ],
+    "contributors": [
+      "WeepingDogel"
+    ]
+  },
+  {
     "id": "tai-ku-la",
     "term": "泰裤辣",
     "aliases": [
@@ -764,6 +900,35 @@ window.ROT_ENTRIES = [
       "表达退化"
     ],
     "harm_note": "一个没有语义的拟声梗当万能夸词，孩子对“夸”的语义基础被掏空，只剩音感反射。",
+    "harm_level": 3,
+    "contributors": [
+      "WeepingDogel"
+    ]
+  },
+  {
+    "id": "kan-guanggao-fuhuo",
+    "term": "看广告复活",
+    "aliases": [
+      "看广告复活你爸",
+      "广告复活"
+    ],
+    "category": "游戏梗",
+    "meaning": "两层：①游戏里'看广告让角色复活'的机制被玩梗；②被改成毒舌'看广告复活你爸'，用来嘲讽、怼人。",
+    "origin": "源自手游'看广告复活'的复活/付费机制；'看广告复活你爸'出自未成年人'满嘴烂梗'AI 演示视频，被当毒舌梗传播。",
+    "example": [
+      "你这操作，看广告复活你爸。",
+      "凉了就看广告复活。"
+    ],
+    "kid_usage": "把游戏'看广告复活'当毒舌甩给别人，尤其'看广告复活你爸'式嘲讽。",
+    "first_seen": "2022",
+    "status": "active",
+    "tone": "反讽",
+    "harm_tags": [
+      "严肃消解",
+      "语境错位",
+      "圈层壁垒"
+    ],
+    "harm_note": "把游戏复活机制+'你爸'混成一句毒舌，孩子学的是'用梗怼人+轻口带脏'，不懂游戏的人听不出是梗，反而显得莫名其妙地冒犯。",
     "harm_level": 3,
     "contributors": [
       "WeepingDogel"
@@ -816,6 +981,38 @@ window.ROT_ENTRIES = [
     ],
     "harm_note": "所有强烈情绪都顶格成“破防”，孩子失去描述不同程度情绪的词汇（委屈、失望、难过、崩溃）。",
     "harm_level": 3,
+    "contributors": [
+      "WeepingDogel"
+    ]
+  },
+  {
+    "id": "fu",
+    "term": "福",
+    "aliases": [
+      "傻福",
+      "福了个福"
+    ],
+    "category": "谐音梗",
+    "meaning": "“福”是“逼”的形近通假字（避审），如“傻福”=“傻逼”；用吉祥词“福”的外壳藏脏话。",
+    "origin": "脏话“逼”易被过滤，网友用形近的“福”顶替（同“冯=妈”一套通假玩法）。",
+    "example": [
+      "你个傻福。",
+      "藻称冯了个福。"
+    ],
+    "kid_usage": "骂人时把“逼”写成“福”，以为换了字就不算骂。",
+    "first_seen": "2021",
+    "status": "active",
+    "tone": "粗口",
+    "harm_tags": [
+      "严肃消解",
+      "读写退化",
+      "圈层壁垒"
+    ],
+    "harm_note": "用“福”装“逼”的祸，把最脏的字藏在吉祥词里，孩子分不清“祝福”和“辱骂”的边界，汉字语义被玩坏。",
+    "harm_level": 3,
+    "topics": [
+      "粗口·通假避审"
+    ],
     "contributors": [
       "WeepingDogel"
     ]
@@ -1134,6 +1331,36 @@ window.ROT_ENTRIES = [
       "语境错位"
     ],
     "harm_note": "“听劝”本是好意，但被泛化成接梗，孩子把“听劝”用成嘴上答应、实际不动的敷衍。",
+    "harm_level": 2,
+    "contributors": [
+      "WeepingDogel"
+    ]
+  },
+  {
+    "id": "ga",
+    "term": "噶",
+    "aliases": [
+      "噶了",
+      "噶掉",
+      "噶脱"
+    ],
+    "category": "网络黑话",
+    "meaning": "网络语里'噶'=死了/没了/完蛋/寄了，多自嘲或形容'凉了'；也指'干掉'。源自吴语'噶脱'（死掉）。",
+    "origin": "吴语'噶脱'（死掉/弄死）借入普通话网络语，被用作戏谑的'死了/完蛋'。",
+    "example": [
+      "我直接噶了。",
+      "这波噶到底。",
+      "把他噶掉。"
+    ],
+    "kid_usage": "形容'凉了/没了/寄了'都叫'噶了'，自嘲'我噶了'。",
+    "first_seen": "2020",
+    "status": "active",
+    "tone": "中性",
+    "harm_tags": [
+      "表达退化",
+      "词义漂移"
+    ],
+    "harm_note": "把'死了/完蛋/毁了/寄了'全压成'噶'一个字，孩子形容任何糟糕结果只有一个词，感受与程度层次被磨平。",
     "harm_level": 2,
     "contributors": [
       "WeepingDogel"

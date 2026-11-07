@@ -47,8 +47,9 @@
     <div class="controls">
       <input id="q" type="search" placeholder="搜词 / 拼音 / 别名 / 释义，如 绝、绝绝子、yyds、太绝了…" autocomplete="off">
     </div>
-    <div id="cats" class="chips"></div>
-    <div id="harms" class="chips"></div>
+    <div class="filter-group"><span class="fg-label">分类</span><div id="cats" class="chips"></div></div>
+    <div class="filter-group"><span class="fg-label">危害</span><div id="harms" class="chips"></div></div>
+    <div class="filter-group"><span class="fg-label">专题</span><div id="topics" class="chips"></div></div>
     <div class="row-between">
       <label class="chk"><input type="checkbox" id="only4"> 只看危害 ≥ 4 的</label>
       <label class="chk"><input type="checkbox" id="byname"> 按条目名排序（默认按危害从高到低）</label>
