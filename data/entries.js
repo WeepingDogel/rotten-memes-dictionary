@@ -692,36 +692,6 @@ window.ROT_ENTRIES = [
     ]
   },
   {
-    "id": "kun",
-    "term": "坤",
-    "aliases": [
-      "坤坤"
-    ],
-    "category": "谐音梗",
-    "meaning": "“坤”当“鸡”的形近通假字（避审），多见于“坤鸡巴”等，替“鸡巴”过审。",
-    "origin": "（据网络资料）为绕敏感词，用“坤”顶“鸡”；同“冯=妈、福=逼”一类的通假避审玩法。",
-    "example": [
-      "你个坤。",
-      "坤鸡巴的。"
-    ],
-    "kid_usage": "拿“坤”代“鸡”去骂人。",
-    "first_seen": "2022",
-    "status": "active",
-    "tone": "粗口",
-    "harm_tags": [
-      "严肃消解",
-      "语境错位"
-    ],
-    "harm_note": "同一脏话被反复换字躲过滤，孩子以为“换个通假字就不粗俗”，粗口反而更藏得住、更难管教。",
-    "harm_level": 3,
-    "topics": [
-      "粗口·通假避审"
-    ],
-    "contributors": [
-      "WeepingDogel"
-    ]
-  },
-  {
     "id": "ao-li-ge",
     "term": "奥利给",
     "aliases": [
@@ -1362,6 +1332,35 @@ window.ROT_ENTRIES = [
     ],
     "harm_note": "把'死了/完蛋/毁了/寄了'全压成'噶'一个字，孩子形容任何糟糕结果只有一个词，感受与程度层次被磨平。",
     "harm_level": 2,
+    "contributors": [
+      "WeepingDogel"
+    ]
+  },
+  {
+    "id": "kun",
+    "term": "坤",
+    "aliases": [
+      "坤坤",
+      "蔡徐坤"
+    ],
+    "category": "名人梗",
+    "meaning": "源自蔡徐坤。'坤/坤坤'代指他，也借他'鸡你太美''你干嘛呀''打篮球'等梗玩整活，常用来调侃爱跳舞、耍帅或用力过猛的人。",
+    "origin": "蔡徐坤（Cai Xukun）2019 年前后爆红，'鸡你太美''只因你太美''小黑子'等梗被二创成'坤坤'式整活/嘲讽。",
+    "example": [
+      "你坤起来了。",
+      "他又开始坤了。"
+    ],
+    "kid_usage": "把爱跳舞/耍帅的同学叫'坤坤'，或刷'鸡你太美'式整活。",
+    "first_seen": "2019",
+    "status": "active",
+    "tone": "中性",
+    "harm_tags": [
+      "语境错位",
+      "圈层壁垒"
+    ],
+    "harm_note": "把整段'蔡徐坤梗'压成'坤/坤坤'当口头禅，不懂梗的人接不住；还常被拿来嘲讽别人'爱耍帅/跳得怪'，容易变成起哄起外号。",
+    "harm_level": 2,
+    "topics": [],
     "contributors": [
       "WeepingDogel"
     ]
