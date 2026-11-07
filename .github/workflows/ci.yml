@@ -1,0 +1,18 @@
+name: 数据校验（CI 门禁）
+
+# 站点由 GitHub Pages 直接服务 main 分支根目录；本 workflow 只做数据门禁：
+# 任何 PR / 推 main 都跑 node scripts/validate.mjs，烂数据在合并前就被拦下。
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: 校验词条
+        run: node scripts/validate.mjs

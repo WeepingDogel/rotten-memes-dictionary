@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "烂梗词条",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "term",
+    "meaning",
+    "category",
+    "harm_note",
+    "harm_level"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "term": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pinyin": {
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "谐音梗",
+        "拼音缩写",
+        "网络黑话",
+        "游戏梗",
+        "生活方式词",
+        "标签词",
+        "情绪词",
+        "直播梗",
+        "其他"
+      ]
+    },
+    "meaning": {
+      "type": "string",
+      "minLength": 1
+    },
+    "origin": {
+      "type": "string"
+    },
+    "example": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "kid_usage": {
+      "type": "string"
+    },
+    "first_seen": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "fading",
+        "dead"
+      ]
+    },
+    "tone": {
+      "enum": [
+        "贬义",
+        "中性",
+        "褒义用滥",
+        "反讽"
+      ]
+    },
+    "harm_tags": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "表达退化",
+          "词义漂移",
+          "读写退化",
+          "严肃消解",
+          "圈层壁垒",
+          "标签化",
+          "语境错位"
+        ]
+      },
+      "minItems": 1
+    },
+    "harm_note": {
+      "type": "string",
+      "minLength": 1
+    },
+    "harm_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

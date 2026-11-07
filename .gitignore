@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+*.log
+# 临时合并文件（entries.js 由脚本生成的中间产物不应提交）
+data/_b*.jsonl
