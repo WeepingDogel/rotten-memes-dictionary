@@ -83,6 +83,7 @@ h4 { margin: 0 0 8px; font-size: 15px; }
 .badge.tone-贬义 { color: var(--bad); border-color: color-mix(in srgb, var(--bad) 40%, transparent); }
 .badge.tone-褒义用滥 { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, transparent); }
 .badge.tone-反讽 { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, transparent); }
+.badge.tone-粗口 { color: var(--bad); border-color: color-mix(in srgb, var(--bad) 45%, transparent); font-weight: 700; }
 .badge.stat-active { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
 .badge.stat-fading { color: var(--muted); }
 .badge.stat-dead { color: var(--muted); text-decoration: line-through; }
