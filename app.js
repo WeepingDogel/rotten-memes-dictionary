@@ -94,13 +94,14 @@
       "</article>";
   }
 
-  function render() {
+  function render(animate) {
     const shown = DATA.filter((e) => match(e) && passFilters(e));
     if (byname.checked) shown.sort((a, b) => a.term.localeCompare(b.term, "zh"));
     else shown.sort((a, b) => (b.harm_level - a.harm_level) || a.term.localeCompare(b.term, "zh"));
     list.innerHTML = shown.map(card).join("");
     empty.hidden = shown.length !== 0;
     count.textContent = "共 " + DATA.length + " 条，当前显示 " + shown.length + " 条";
+    list.dispatchEvent(new CustomEvent("rot-render", { detail: { animate: !!animate } }));
   }
 
   function chips(container, items, set, has) {
@@ -115,7 +116,7 @@
         const v = btn.dataset.v;
         set.has(v) ? set.delete(v) : set.add(v);
         btn.classList.toggle("on", set.has(v));
-        render();
+        render(true);
       }));
   }
 
@@ -152,11 +153,11 @@
   chips(harms, harmSet, selHarm, (e, c) => e.harm_tags.includes(c));
   if (topicSet.length) chips(topics, topicSet, selTopics, (e, c) => (e.topics || []).includes(c));
   else topics.parentElement.hidden = true;
-  q.addEventListener("input", () => { query = norm(q.value); render(); });
-  only4.addEventListener("change", render);
-  byname.addEventListener("change", render);
+  q.addEventListener("input", () => { query = norm(q.value); render(false); });
+  only4.addEventListener("change", () => render(true));
+  byname.addEventListener("change", () => render(true));
   pillcount.textContent = DATA.length;
   footcount.textContent = DATA.length;
   stats();
-  render();
+  render(true);
 })();
