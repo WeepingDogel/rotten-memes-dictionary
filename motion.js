@@ -7,52 +7,41 @@
   if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
   gsap.config({ nullTargetWarn: false });
 
-  var list = document.getElementById("list");
+  var entry = document.getElementById("entry");
 
-  // 1) 入场时间线：顶栏 + 标签胶囊 轻起伏，带“强制完成”安全网（后台/限帧 tab 也能落地）
+  // 1) 报头入场：品牌 + 检索栏 轻起伏（带“强制完成”安全网）
   var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-  tl.from(".top", { y: -16, opacity: 0, duration: 0.5 })
-    .from(".pill", { opacity: 0, y: 10, stagger: 0.05, duration: 0.4 }, "-=0.25");
+  tl.from(".masthead", { y: -14, opacity: 0, duration: 0.5 })
+    .from(".brand", { y: 10, opacity: 0, duration: 0.4 }, "-=0.2")
+    .from(".lookup", { y: 10, opacity: 0, duration: 0.4 }, "-=0.2");
   setTimeout(function () { tl.progress(1); }, 4000);
 
-  // 2) 卡片入场：首屏一次 + 之后每次“离散筛选”（rot-render & animate）
-  function animateCards(y) {
-    var cards = Array.from(list.querySelectorAll(".card"));
-    if (!cards.length) return;
-    gsap.from(cards, {
-      opacity: 0, y: y, duration: 0.45, ease: "power2.out",
-      stagger: { each: 0.02, grid: "auto 3", from: "start" },
+  // 2) 词条“翻页”：首屏一次 + 每次“离散”切换（rot-render & animate）子块轻错落
+  function animateEntry(y) {
+    if (!entry || !entry.children.length) return;
+    gsap.from(entry.children, {
+      opacity: 0, y: y, duration: 0.4, ease: "power2.out", stagger: 0.04,
       clearProps: "transform, opacity"
     });
   }
-  if (list) {
-    animateCards(18); // 初始（app.js 已把卡片渲染好）
-    list.addEventListener("rot-render", function (e) {
-      if (e.detail && e.detail.animate) animateCards(10);
-    });
-  }
+  animateEntry(16); // 首屏（app.js 已把词条渲染好）
+  entry && entry.addEventListener("rot-render", function (e) {
+    if (e.detail && e.detail.animate) animateEntry(10);
+  });
 
-  // 3) 各区块滚动揭示（ScrollTrigger）
+  // 3) 各章节滚动揭示（.sec）+ 统计条生长 + 顶部进度条（ScrollTrigger）
   if (window.ScrollTrigger) {
-    gsap.utils.toArray("section.card-sec").forEach(function (sec) {
-      gsap.from(sec, {
-        opacity: 0, y: 32, duration: 0.6, ease: "power3.out",
-        scrollTrigger: { trigger: sec, start: "top 88%" }
-      });
+    gsap.utils.toArray(".sec").forEach(function (sec) {
+      gsap.from(sec, { opacity: 0, y: 30, duration: 0.6, ease: "power3.out",
+        scrollTrigger: { trigger: sec, start: "top 88%" } });
     });
-    // 统计条：宽度从 0 生长到内联目标值（保留最终宽度）
-    gsap.utils.toArray("#statblocks .track i").forEach(function (el) {
-      gsap.from(el, {
-        width: 0, duration: 0.8, ease: "power2.out",
-        scrollTrigger: { trigger: "#stats", start: "top 80%" }
-      });
+    gsap.utils.toArray("#caution .track i").forEach(function (el) {
+      gsap.from(el, { width: 0, duration: 0.8, ease: "power2.out",
+        scrollTrigger: { trigger: "#caution", start: "top 80%" } });
     });
-    // 顶部滚动进度条（#scrollbar，scrub 跟随滚动）
     var bar = document.getElementById("scrollbar");
-    if (bar) gsap.fromTo(bar, { scaleX: 0 }, {
-      scaleX: 1, ease: "none",
-      scrollTrigger: { trigger: document.documentElement, start: "top top", end: "bottom bottom", scrub: 0.2 }
-    });
+    if (bar) gsap.fromTo(bar, { scaleX: 0 }, { scaleX: 1, ease: "none",
+      scrollTrigger: { trigger: document.documentElement, start: "top top", end: "bottom bottom", scrub: 0.2 } });
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
 })();
