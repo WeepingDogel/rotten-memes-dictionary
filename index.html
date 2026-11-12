@@ -4,84 +4,76 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>烂梗词典 · 查意思，也懂危害</title>
-<meta name="description" content="面向小学生的网络烂梗词典：查每个烂梗的意思、来源、例句，也讲清楚它为什么有害。">
+<title>烂梗词典 · A Dictionary of Rotten Internet Slang</title>
+<meta name="description" content="牛津风格的中文网络烂梗词典：查意思、来源、例句，并标注它对表达能力的具体伤害（用法注意 / Caution）。">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="scrollbar" aria-hidden="true"></div>
-<header class="top">
+
+<header class="masthead">
   <div class="wrap">
-    <h1>烂梗词典</h1>
-    <p class="sub">查意思，也懂危害 —— 整理小学生/青少年满嘴的烂梗，解释它是什么、从哪来、该怎么替，并标注它对表达能力的具体伤害。</p>
-    <div class="pills">
-      <a class="pill" href="#why">为什么满嘴烂梗是问题</a>
-      <a class="pill" href="#dict">查词条 <span id="pillcount">…</span></a>
-      <a class="pill" href="#stats">危害分布</a>
-      <a class="pill" href="#how">给家长的做法</a>
-      <a class="pill" href="https://github.com/WeepingDogel/rotten-memes-dictionary">贡献词条</a>
+    <div class="brand">
+      <span class="brand-zh">烂梗词典</span>
+      <span class="brand-en">A Dictionary of Rotten Internet Slang</span>
     </div>
+    <p class="brand-sub">收录小学生 / 青少年满嘴的“烂梗”：查它是什么意思、从哪来、例句，并标注它对表达能力的具体伤害（Caution · 用法注意）。</p>
+  </div>
+
+  <div class="wrap lookup">
+    <div class="lookup-row">
+      <input id="q" type="search" placeholder="查一个烂梗，如 绝绝子 / yyds / 78 / 冯冯 / 烧鸡…" autocomplete="off" spellcheck="false">
+      <button id="random" class="dice" title="随机查一个" aria-label="随机查一个">🎲</button>
+    </div>
+    <p class="lookup-hint">共 <span id="pillcount">…</span> 条 · 不确定怎么拼可只打一个字 · <a href="#index">按类浏览</a> · <a href="#caution">危害分布</a> · <a href="#parents">给家长的做法</a></p>
   </div>
 </header>
 
-<main class="wrap">
-
-  <!-- 危害科普：纯静态，JS 失败也能读 -->
-  <section id="why" class="card-sec">
-    <h2>为什么“满嘴烂梗”是个问题</h2>
-    <p>梗不是罪。问题是<b>长期、高频、只用梗</b>。每个烂梗都会吃掉一层表达能力，攒多了，孩子就“除了梗不会好好说话”。</p>
-    <ul class="why-list">
-      <li><b>词义被压扁。</b>一个好词反复只指同一件事，语义层次就没了。想表达“惊艳/极致/厌恶”，全塞进“绝绝子”。</li>
-      <li><b>表达退化。</b>用梗替代完整句子，复杂感受没有词汇去承载，只剩一个音。</li>
-      <li><b>读写退化。</b>拼音缩写（yyds、xswl）、同音字（栓Q、蚌埠住了）直接削弱规范书写。</li>
-      <li><b>严肃被消解。</b>感谢/道歉/挫折都被做成阴阳怪气，正经场合没法好好说话。</li>
-      <li><b>圈层壁垒 + 标签化。</b>不懂梗就被排挤；性格被压成 i 人/e 人两个字母。</li>
-      <li><b>语境错位。</b>游戏黑话、直播腔被搬到现实和书面里乱用。</li>
-      <li><b>底层。</b>这是<b>表达能力的窄化</b>，不是“更有趣”。梗生命周期短、学得快忘得快，能力不留存。</li>
-    </ul>
-    <p class="note">对家长：先别急着骂。把每个梗“翻译”回精确表达，示范正确说法，鼓励具体描述，限定使用场景——比羞辱更有效。</p>
-  </section>
-
-  <!-- 词条检索 -->
-  <section id="dict" class="card-sec">
-    <h2>查词条</h2>
-    <div class="controls">
-      <input id="q" type="search" placeholder="搜词 / 拼音 / 别名 / 释义，如 绝、绝绝子、yyds、太绝了…" autocomplete="off">
-    </div>
-    <div class="filter-group"><span class="fg-label">分类</span><div id="cats" class="chips"></div></div>
-    <div class="filter-group"><span class="fg-label">危害</span><div id="harms" class="chips"></div></div>
-    <div class="filter-group"><span class="fg-label">专题</span><div id="topics" class="chips"></div></div>
-    <div class="row-between">
-      <label class="chk"><input type="checkbox" id="only4"> 只看危害 ≥ 4 的</label>
-      <label class="chk"><input type="checkbox" id="byname"> 按条目名排序（默认按危害从高到低）</label>
-    </div>
-    <p id="count" class="count"></p>
-    <div id="list"></div>
-    <p id="empty" class="empty" hidden>没有匹配的词条。</p>
-  </section>
-
-  <!-- 危害分布 -->
-  <section id="stats" class="card-sec">
-    <h2>危害分布</h2>
-    <p class="sub">当前词条里，哪种“伤害”最常见、哪些最该先纠正。</p>
-    <div id="statblocks"></div>
-  </section>
-
-  <!-- 给家长 -->
-  <section id="how" class="card-sec">
-    <h2>给家长的做法</h2>
-    <ol>
-      <li><b>别羞辱。</b>笑孩子“满嘴烂梗”只会让他更依赖梗来获得认同。先共情，再纠正。</li>
-      <li><b>给替代词。</b>把“绝绝子”换成“太出色/太惊艳/太糟糕”，让他知道精确说法长什么样。</li>
-      <li><b>示范具体表达。</b>把“你破防了”引导成“你其实是不是有点委屈？”——帮他把情绪说具体。</li>
-      <li><b>限定场景。</b>约定“家里/课堂用正常话，梗留给自己的圈子”，不是一刀切禁止。</li>
-      <li><b>一起查这本词典。</b>把它当成工具而非裁判：能解释“它是什么意思、从哪来、更好的说法”，本身就是教育。</li>
-    </ol>
-  </section>
+<main class="wrap layout" id="index">
+  <article id="entry" class="entry" aria-live="polite"></article>
+  <aside id="side" class="side"></aside>
 </main>
 
-<footer class="foot wrap">
-  <p>本词典词条为开放贡献（MIT / CC-BY）。发现用错/来源写错？到 <a href="https://github.com/WeepingDogel/rotten-memes-dictionary">GitHub</a> 提 PR 或开个 Issue。当前共 <span id="footcount">…</span> 条。</p>
+<section id="caution" class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">危害分布 <span class="sec-sub">Caution · 哪种伤害最常见，先纠正哪些</span></h2>
+    <div id="statblocks"></div>
+  </div>
+</section>
+
+<section id="why" class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">为什么“满嘴烂梗”是个问题 <span class="sec-sub">Why it matters</span></h2>
+    <div class="prose">
+      <p>梗不是罪。问题是<b>长期、高频、只用梗</b>。每个烂梗都会吃掉一层表达能力，攒多了，孩子就“除了梗不会好好说话”。</p>
+      <ul class="why-list">
+        <li><b>词义被压扁。</b>一个好词反复只指同一件事，语义层次没了：想表达“惊艳 / 极致 / 厌恶”，全塞进“绝绝子”。</li>
+        <li><b>表达退化。</b>用梗替代完整句子，复杂感受没有词汇承载，只剩一个音。</li>
+        <li><b>读写退化。</b>拼音缩写（yyds、xswl）、同音字（栓Q、蚌埠住了、冯=妈）直接削弱规范书写。</li>
+        <li><b>严肃被消解。</b>感谢 / 道歉 / 挫折都被做成阴阳怪气，正经场合没法好好说话。</li>
+        <li><b>圈层壁垒 + 标签化。</b>不懂梗就被排挤；性格被压成 i 人 / e 人两个字母。</li>
+        <li><b>语境错位。</b>游戏黑话、直播腔被搬到现实与书面里乱用。</li>
+        <li><b>底层。</b>这是<b>表达能力的窄化</b>，不是“更有趣”。梗生命周期短、学得快忘得快，能力不留存。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="parents" class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">给家长的做法 <span class="sec-sub">How parents can help</span></h2>
+    <ol class="how-list">
+      <li><b>别羞辱。</b>笑孩子“满嘴烂梗”只会让他更依赖梗来获得认同。先共情，再纠正。</li>
+      <li><b>给替代词。</b>把“绝绝子”换成“太出色 / 太惊艳 / 太糟糕”，让他知道精确说法长什么样。</li>
+      <li><b>示范具体表达。</b>把“你破防了”引导成“你其实是不是有点委屈？”——帮他把情绪说具体。</li>
+      <li><b>限定场景。</b>约定“家里 / 课堂用正常话，梗留给自己的圈子”，不一刀切禁止。</li>
+      <li><b>一起查这本词典。</b>把它当工具而非裁判：能解释“它是什么意思、从哪来、更好的说法”，本身就是教育。</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="wrap foot">
+  <p>词条开放贡献（MIT / CC-BY）。发现用错、来源写错？到 <a href="https://github.com/WeepingDogel/rotten-memes-dictionary">GitHub</a> 提 PR 或开 Issue。当前共 <span id="footcount">…</span> 条。</p>
 </footer>
 
 <script src="data/entries.js"></script>
